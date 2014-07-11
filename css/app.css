@@ -6,7 +6,15 @@ html, body {
     font-family: Helvetica, Arial, Verdana, sans;
 }
 
-x-card {
+brick-layout {
+  height: 100%;
+}
+
+brick-deck {
+  border: 1px solid red;
+}
+
+brick-card {
   padding: 1rem;
 }
 
@@ -32,6 +40,6 @@ h1 {
   display: none;
 }
 
-x-tabbar-tab[selected] {
+brick-tabbar-tab[selected] {
   background: rgba(14, 115, 161, 1);
 }

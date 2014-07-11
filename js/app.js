@@ -1,14 +1,15 @@
-document.addEventListener('DOMComponentsLoaded', function() {
-  
-  var deck = document.querySelector('x-deck');
-  var firstTab = document.querySelector('x-tabbar-tab');
+window.addEventListener('WebComponentsReady', function() {
+
+  var deck = document.querySelector('brick-deck');
+  var firstTab = document.querySelector('brick-tabbar-tab');
   deck.showCard(0);
+  console.log(deck);
   firstTab.select();
 
   // Install logic
   // If the app has already been installed, we don't do anything.
   // Otherwise we'll show the button, and hide it when/if the user installs the app.
-  var installButton = document.getElementById('install');
+  /*var installButton = document.getElementById('install');
   var manifestPath = AppInstall.guessManifestPath();
 
   if(AppInstall.isInstallable()) {
@@ -38,7 +39,7 @@ document.addEventListener('DOMComponentsLoaded', function() {
 
     });
 
-  }
+  }*/
 
 
 });
