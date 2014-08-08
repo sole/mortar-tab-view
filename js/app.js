@@ -1,7 +1,7 @@
-document.addEventListener('DOMComponentsLoaded', function() {
+document.addEventListener('WebComponentsReady', function() {
   
-  var deck = document.querySelector('x-deck');
-  var firstTab = document.querySelector('x-tabbar-tab');
+  var deck = document.querySelector('brick-deck');
+  var firstTab = document.querySelector('brick-tabbar-tab');
   deck.showCard(0);
   firstTab.select();
 
