@@ -7,20 +7,10 @@
     <meta name="description" content="A template with tabbed views">
     <meta name="viewport" content="width=device-width">
 
+    <script src="js/lib/platform/platform.js"></script>
+	<link rel="import" href="js/lib/brick/brick.min.html">
+
     <link rel="stylesheet" href="css/app.css">
-
-    <link rel="stylesheet" href="css/lib/brick-1.0.0.min.css">
-    <link rel="stylesheet" href="css/lib/appbar.css">
-    <link rel="stylesheet" href="css/lib/deck.css">
-    <link rel="stylesheet" href="css/lib/layout.css">
-    <link rel="stylesheet" href="css/lib/tabbar.css">
-
-    <script src="js/lib/x-tag-core.js"></script>
-    <script src="js/lib/appbar.js" defer></script>
-    <script src="js/lib/deck.js" defer></script>
-    <script src="js/lib/layout.js" defer></script>
-    <script src="js/lib/tabbar.js" defer></script>
-
     <script src="js/lib/AppInstall.js" defer></script>
 
     <script src="js/app.js" defer></script>
@@ -29,53 +19,51 @@
   <body>
 
     <!--
-      An x-layout will ensure the content fills the screen, and if there are header and footer elements, that these stay locked to the top and bottom of the screen while the main content (in this case an x-deck instance) fills the rest of available space).
+      A brick-layout will ensure the content fills the screen, and if there are header and footer elements, that these stay locked to the top and bottom of the screen while the main content (in this case a brick-deck instance) fills the rest of available space).
     -->
-    <x-layout>
+    <brick-layout>
       
-      <!-- The x-appbar will always be pinned to the top -->
-      <x-appbar><h2>TabView template</h2><button id="install" class="hidden">Install</button></x-appbar>
+      <!-- The header will always be pinned to the top -->
+      <header><h2>TabView template</h2><button id="install" class="hidden">Install</button></header>
       
-      <!-- An x-deck will show only one of its children (which are x-card) at a time. You can select which one with the `show` method, or using the `selected-index` attribute -->
-      <x-deck>
-        <!-- Since we set a different id for each card, we can later reference it from x-tabbar (see below) -->
-        <x-card id="card1">
+      <!-- A brick-deck will show only one of its children (which are brick-card) at a time. You can select which one with the `show` method, or using the `selected-index` attribute -->
+      <brick-deck>
+        <!-- Since we set a different id for each card, we can later reference it from brick-tabbar (see below) -->
+        <brick-card id="card1">
           <!-- 
-            An x-card can contain any kind of HTML mark-up. Except, maybe, don't put an x-card inside an x-card!
+            A brick-card can contain any kind of HTML mark-up. Except, maybe, don't put a brick-card inside a brick-card!
             In our case we will be showing different "minidocuments" in each card, but you could have totally different
             content in each one.
           -->
           <h1>Lorem ipsum</h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </x-card>
-        <x-card id="card2">
+        </brick-card>
+        <brick-card id="card2">
           <h1>Sed ut</h1>
           <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
-        </x-card>
-        <x-card id="card3">
+        </brick-card>
+        <brick-card id="card3">
           <h1>At vero</h1>
           <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
-        </x-card>
-      </x-deck>
+        </brick-card>
+      </brick-deck>
       
-      <!-- The x-tabbar contains a series of x-tabbar-tab elements which, when selected, will attempt to
-        call `show` on the element that matches the value of the `target-selector` attribute.
-        We are using two different selectors to demonstrate this: The first two use id selectors (#card1 and #card2).
-        The third one uses a nth-child selector. Feel free to adapt to what your app might need.
+      <!-- The brick-tabbar contains a series of brick-tabbar-tab elements which, when selected, will attempt to
+        call `show` on the element whose id matches the value of the `target` attribute.
       -->
-      <x-tabbar>
-        <x-tabbar-tab target-selector="#card1">
+      <brick-tabbar>
+        <brick-tabbar-tab target="card1">
           Lorem ipsum
-        </x-tabbar-tab>
-        <x-tabbar-tab target-selector="#card2">
+        </brick-tabbar-tab>
+        <brick-tabbar-tab target="card2">
           Sed ut
-        </x-tabbar-tab>
-        <x-tabbar-tab target-selector="x-card:nth-child(3)">
+        </brick-tabbar-tab>
+        <brick-tabbar-tab target="card3">
           At vero
-        </x-tabbar-tab>
-      </x-tabbar>
+        </brick-tabbar-tab>
+      </brick-tabbar>
 
-    </x-layout>
+    </brick-layout>
 
   </body>
 </html>
