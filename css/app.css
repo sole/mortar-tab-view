@@ -1,27 +1,39 @@
-
 html, body {
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    font-family: Helvetica, Arial, Verdana, sans;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: Helvetica, Arial, Verdana, sans;
 }
 
-x-card {
+brick-card {
   padding: 1rem;
+  background: #f0f0f0;
+}
+
+header {
+  padding: 1rem;
+  background: #ccc;
+  text-shadow: 1px 1px 0px #fff;
+  display: flex;
 }
 
 h1 {
   margin: 0 0 1rem 0;
 }
 
+h2 {
+  margin:  0;
+  flex-grow: 1;
+}
+
 #install {
-  margin: 0.2rem;
-  background: #f00;
-  border: 1px solid;
+  color: #fff;
+  background: #686;
+  border: 0px solid #040;
+  border-bottom-width: 3px;
   padding: 0.2rem;
   line-height: 1;
-  border-radius: 0.2rem;
-  font-size: 80%; 
+  font-size: 80%;
 }
 
 #install:hover {
@@ -32,6 +44,22 @@ h1 {
   display: none;
 }
 
-x-tabbar-tab[selected] {
-  background: rgba(14, 115, 161, 1);
+brick-tabbar {
+  border-top: none;
+}
+
+brick-tabbar brick-tabbar-tab {
+  color: #fff;
+  background: #666;
+  font-style: normal;
+}
+
+brick-tabbar brick-tabbar-tab[selected] {
+  background: #f0f0f0;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.85);
+  z-index: 10;
+}
+
+brick-tabbar .selected-indicator {
+  background-color: transparent;
 }
