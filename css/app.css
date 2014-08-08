@@ -8,12 +8,12 @@ html, body {
 brick-card {
   padding: 1rem;
   background: #f0f0f0;
+  overflow-y: auto;
 }
 
 header {
   padding: 1rem;
   background: #ccc;
-  text-shadow: 1px 1px 0px #fff;
   display: flex;
 }
 
@@ -50,13 +50,28 @@ brick-tabbar {
 
 brick-tabbar brick-tabbar-tab {
   color: #fff;
-  background: #666;
+  background: linear-gradient(180deg, #666 0%, #444 100%);
   font-style: normal;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: auto;
+  line-height: auto;
+  transition: background 1s;
+}
+
+brick-tabbar brick-tabbar-tab:hover {
+  background: linear-gradient(180deg, #999 0%, #444 100%);
+}
+
+brick-tabbar brick-tabbar-tab + brick-tabbar-tab { 
+  border-left: 1px solid rgba(0, 0, 0, 0.25);
 }
 
 brick-tabbar brick-tabbar-tab[selected] {
   background: #f0f0f0;
-  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.85);
+  background: linear-gradient(180deg, #f0f0f0 0%, #ccc 100%);
+  box-shadow: 0px 0px 3rem rgba(0, 0, 0, 0.85);
   z-index: 10;
 }
 
